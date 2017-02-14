@@ -84,3 +84,11 @@ knn.pred3 = knn(train.X, test.X, train.mpg, k = 8)
 
 table(knn.pred3, Auto.test$mpg01)
 TeER.knn3 = mean(knn.pred3 != Auto.test$mpg01)
+
+#Alternative
+TeER.knn = rep(0,20)
+for(i in 1:20){
+  knn.pred = knn(train.X, test.X, train.mpg, k = i)
+  TeER.knn[i] = mean(knn.pred != Auto.test$mpg01)
+}
+ggplot(data = data.frame(TeER.knn), aes(x = seq_along(TeER.knn), y = TeER.knn)) + geom_line(color = "dodgerblue3") + labs(list(x =  "k", y = "Test Error Rate")) + theme_bw() + scale_x_continuous(breaks = pretty(seq_along(TeER.knn), n = 20)) + scale_y_continuous(breaks = TeER.knn)
