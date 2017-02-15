@@ -92,4 +92,7 @@ for(i in 1:20){
   TeER.knn[i] = mean(knn.pred != Auto.test$mpg01)
 }
 ggplot(data = data.frame(TeER.knn), aes(x = seq_along(TeER.knn), y = TeER.knn)) + geom_line(color = "dodgerblue3") + labs(list(x =  "k", y = "Test Error Rate")) + theme_bw() + scale_x_continuous(breaks = pretty(seq_along(TeER.knn), n = 20)) + scale_y_continuous(breaks = TeER.knn)
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1a60025afaca95b4ca645b9fc7499fa6874a4d14
