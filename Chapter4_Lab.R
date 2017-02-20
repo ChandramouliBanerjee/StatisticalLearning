@@ -81,3 +81,11 @@ knn.pred2 = knn(train.X, test.X, train.Direction, k = 3)
 table(knn.pred2, Smarket.test$Direction)
 
 TeER.knn2 = mean(knn.pred2 != Smarket.test$Direction)
+
+#Alternative
+TeER.knn = rep(0,20)
+for(i in 1:20){
+  knn.pred = knn(train.X, test.X, train.Direction, k = i)
+  TeER.knn[i] = mean(knn.pred != Smarket.test$Direction)
+}
+ggplot(data = data.frame(TeER.knn), aes(x = seq_along(TeER.knn), y = TeER.knn)) + geom_line(color = "dodgerblue3") + labs(list(x =  "k", y = "Test Error Rate")) + theme_bw() + scale_x_continuous(breaks = seq_along(TeER.knn)) + scale_y_continuous(breaks = TeER.knn)
