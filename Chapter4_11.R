@@ -68,6 +68,8 @@ TeER.glm = mean(glm.pred != Auto.test$mpg01)
 train.X = Auto.train[, -c(1,8,9,10)]
 test.X= Auto.test[, -c(1,8,9,10)]
 train.mpg = Auto.train$mpg01
+
+
 knn.pred1 = knn(train.X, test.X, train.mpg, k = 1)
 
 table(knn.pred1, Auto.test$mpg01)
@@ -86,6 +88,7 @@ table(knn.pred3, Auto.test$mpg01)
 TeER.knn3 = mean(knn.pred3 != Auto.test$mpg01)
 
 #Alternative
+set.seed(2)
 TeER.knn = rep(0,20)
 for(i in 1:20){
   knn.pred = knn(train.X, test.X, train.mpg, k = i)
