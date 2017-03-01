@@ -1,3 +1,5 @@
+## This script uses the caret package to estimate a cross validated KNN classifier using the Auto dataset. 
+
 library("caret")
 library("ISLR")
 library("ggplot2")

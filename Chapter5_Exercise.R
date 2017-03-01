@@ -1,3 +1,5 @@
+## This script solves the (self imposed) exercise question for Chapter 5
+
 library("ISLR")
 library("ggplot2")
 library("MASS")
@@ -7,7 +9,7 @@ library("boot")
 library("parallel")
 library("pROC")
 
-bwght = read.csv("/home/ron/Downloads/excelfiles/bwght.csv", header = TRUE)
+bwght = read.csv("/home/ron/Downloads/excelfiles/bwght.csv", header = TRUE) #Use own pathname
 
 #Recoding missing values as NA
 bwght[bwght == "."] = NA

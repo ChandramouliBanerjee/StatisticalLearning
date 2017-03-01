@@ -1,3 +1,5 @@
+## This script reproduces the Cross Validation portion of the lab from Chapter 5
+
 library("ISLR")
 library("ggplot2")
 library("MASS")
